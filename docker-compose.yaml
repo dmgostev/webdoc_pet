@@ -9,7 +9,7 @@ services:
      - ./templates:/etc/nginx/templates #вольюм обкашляем еще
     build:
       context: .
-      dockerfile_inline: webdoc.Dockerfile
+      dockerfile: web.Dockerfile
     ports:
      - "8080:80"    #порты
     environment:
