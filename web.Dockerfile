@@ -9,7 +9,7 @@ RUN mkdir -p /data/www && \
     chown -R nginx:nginx /data/www
 
 # copying files
-COPY ./frontend/* /data/www
+COPY ./frontend/ /data/www
 
 # runs nginx when container starts off
 CMD ["nginx", "-g", "daemon off;"]
