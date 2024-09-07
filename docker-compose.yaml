@@ -3,8 +3,6 @@ name: webdoc
 
 services:
   web:
-    image: nginx:1.27-alpine   #образ версии
-    restart: always
     volumes:
      - ./templates:/etc/nginx/templates #вольюм обкашляем еще
     build:
