@@ -25,4 +25,4 @@ services:
         condition: service_started    #условие для запуска, чтобы сначала поднялся nginx
     build:
       context: .
-      dockerfile: webdoc.Dockerfile
+      dockerfile: app.Dockerfile
