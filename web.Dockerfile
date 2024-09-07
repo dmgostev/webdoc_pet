@@ -2,7 +2,7 @@
 FROM nginx:1.27-alpine
 
 # copy config to container
-COPY nginx.conf /etc/nginx/nginx.conf
+# COPY nginx.conf /etc/nginx/nginx.conf
 
 # create directory to store frontend files assign ownership
 RUN mkdir -p /data/www 
