@@ -5,8 +5,9 @@ FROM nginx:1.27-alpine
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # create directory to store frontend files assign ownership
-RUN mkdir -p /data/www && \
-    chown -R nginx:nginx /data/www
+RUN mkdir -p /data/www 
+RUN chown -R nginx:nginx /data/www
+
 
 # copying files
 COPY ./frontend/ /data/www
