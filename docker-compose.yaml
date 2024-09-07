@@ -1,0 +1,28 @@
+version: "3.9"
+name: webdoc
+
+services:
+  web:
+    image: nginx:1.27-alpine   #образ версии
+    restart: always
+    volumes:
+     - ./templates:/etc/nginx/templates #вольюм обкашляем еще
+    build:
+      context: .
+      dockerfile_inline: webdoc.Dockerfile
+    ports:
+     - "8080:80"    #порты
+    environment:
+     - NGINX_HOST=foobar.com  #хост обкашляем
+     - NGINX_PORT=80          #порт тоже потом можно пересмотреть
+
+  app:
+    restart: always
+    cpu_count: 1    #потом можно будет пересмотреть
+    shm_size: 128mb   #потом можно будет пересмотреть
+    depends_on:
+      web:
+        condition: service_started    #условие для запуска, чтобы сначала поднялся nginx
+    build:
+      context: .
+      dockerfile: webdoc.Dockerfile
