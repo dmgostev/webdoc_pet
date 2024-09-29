@@ -24,3 +24,5 @@ services:
     build:
       context: .
       dockerfile: app.Dockerfile
+    ports:
+      - "9999:9999"
